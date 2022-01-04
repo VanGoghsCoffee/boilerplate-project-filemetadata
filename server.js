@@ -2,6 +2,8 @@ var express = require('express');
 var cors = require('cors');
 require('dotenv').config()
 
+const myApp = require('./app');
+
 var app = express();
 
 app.use(cors());
@@ -11,7 +13,7 @@ app.get('/', function (req, res) {
     res.sendFile(process.cwd() + '/views/index.html');
 });
 
-
+app.use(myApp);
 
 
 const port = process.env.PORT || 3000;
